@@ -1,0 +1,55 @@
+---------------------------------------------------------------------
+Notas curos nodejs
+---------------------------------------------------------------------
+
+Que es objetos ........... los libros plantean state/behavior
+
+  propiedades
+  metodos
+
+
+javascrip, adopta y se comporta como un lenguaje funcional.
+
+Que es un lenguaje funcional: "Functions as data".
+
+puedo recibir como argumento, almacenar, retornar funciones como 
+si fueran un dato mas.
+
+---------------------------------------------------------------------
+Call stack
+---------------------------------------------------------------------
+Los lenguajes imperativos c, c#, java, c++, assembler, tienen lo que 
+se llama un callstack
+
+10 inc A
+20 dec A
+30 call etiqueta
+40 
+50 
+
+etiqueta 70 ..
+71 ..
+72 ..
+73 return
+
+---------------------------------------------------------------------
+Modelo de single thread
+---------------------------------------------------------------------
+
+Aca en javascript ***no existe aquello*** de que yo llamaba a 
+
+let contenidoArchivo = leerArchivo('/var/log/log.txt')
+
+
+siempre que se llama a una función se hace asincrónico?
+
+SI: Si es IO Input/Output
+hay algunas exepciones a la relgla setTimeout que opera con un reloj.
+
+
+
+
+
+
+
+

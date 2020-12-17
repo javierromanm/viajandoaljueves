@@ -1,0 +1,21 @@
+Investigar 
+
+.filter
+.reduce
+.map
+
+Si pueden algo de underscore.
+
+Que vamos a ver la clase 2.
+
+Vamos a crear mil archivos con datos falso o fake.
+para eso vamos a utilizar una libreria que se llama
+fake.
+
+pero para lograr este objetivo, vamos a tener que coordinar
+como hacerlo de manera asincronica.
+
+for (;mil;) {
+   fs.writeFile('/var/log/log.txt', 'utf8', (err, data)=>{})
+}
+
