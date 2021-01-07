@@ -7,6 +7,8 @@ function funcion() {
     return incA
 }
 
+// este feature se denomina closure
+
 let fn = funcion()
 
 fn()
