@@ -1,20 +1,19 @@
 const genUsuario = require('./lib/genusuario')
+const asyncForLoop = require('./lib/asyncforloop')
 const fs = require('fs')
+const constante = require('./lib/modulosimple')
 
-let obj = genUsuario()
-
-let txtEscribir = JSON.stringify(obj) + "\n"
-console.log(obj)
-console.log(txtEscribir)
-console.log('----------------')
-console.log(__dirname)
-console.log('----------------')
-
-let composicionRuta = ['/home', process.env.USER, 
+asyncForLoop(1000, (sub, next)=>{
+    let obj = genUsuario()
+    let txtEscribir = JSON.stringify(obj) + "\n"
+    let composicionRuta = ['/home', process.env.USER, 
                     'archivos', obj.id + '.json'].join('/')
 
-console.log(composicionRuta)
-
-fs.writeFile(composicionRuta, txtEscribir, 'utf8', err => {
-    console.log(err)
+    fs.writeFile(composicionRuta, txtEscribir, 'utf8', err => {
+        if (err) {
+            console.log(err)
+            console.log('no llamo a next')
+        }
+        next()
+    })
 })
