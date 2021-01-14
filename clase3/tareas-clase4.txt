@@ -1,0 +1,41 @@
+----------------------------------------------------------------------
+Tareas para la clase 4
+----------------------------------------------------------------------
+
+Hacer una aplicacion que vaya dictando un determinado ejercicio fisico.
+
+20 Abdominales
+20 Biceps
+20 Sentadillas
+20 Flexiones de brazos
+20 Saltos
+
+podemos definir constantes para cada uno de los tiempos
+
+----------------------------------------------------------------------
+Opcional 1 
+----------------------------------------------------------------------
+
+Ver si encuentran la manera de interrumpir el ciclo asyncForLoop
+
+Hoy x hoy NO hay una maner, solo dejar de llamar a next;
+
+Pasa que si dejamos de llamar a next hay un problema es que nunca llega a 
+llamar onFinish
+
+Objetivo es: interrumpir el asynForLoop y llamar a onFinish con un codigo error.
+
+----------------------------------------------------------------------
+Indicaciones para trabajo de pair programming 
+----------------------------------------------------------------------
+
+25 minutos hay un piloto. El copiloto se encarga de ayudar.
+5 minutos - 10 minutos. descanso.
+25 minutos cambio de piloto y copiloto.
+
+
+
+
+
+
+
