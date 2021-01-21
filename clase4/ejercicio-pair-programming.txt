@@ -1,0 +1,27 @@
+Ejercicio para pair programming
+
+Tomar cada uno de los archivos que esta en la carpeta
+/var/node/archvivos y subirlos a mongodb
+
+BaseDatos: viajandoaljueves
+Collection: usuarios
+
+Poner cada uno de los archivos en esta coleccion.
+
+------------------------------------------------------------------------
+Proxima clase, Express, Como no caer en callback hell
+
+Ejemplo. Hago una consulta por un usuario y express me lo sirve por HTTP
+
+Quiero ver como colocar paginas estaticas, para consumir servicios rest
+que me brinde express.
+
+Esto que incluye ? Consultar usuarios, crear usuarios, borrar usuarios.
+
+No vamos a utilizar ningun framework solo javascript.
+
+Link para bajar mongodb comprimido gzip.
+
+https://fastdl.mongodb.org/linux/mongodb-linux-aarch64-ubuntu2004-4.4.3.tgz
+
+

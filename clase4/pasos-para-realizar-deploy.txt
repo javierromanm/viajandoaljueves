@@ -1,0 +1,70 @@
+create droplet 
+
+crear una carpeta claves
+
+dentro de esa carpeta
+
+ssh-keygen le pongo un nombre ej: deploy
+
+ssh -i /patharchivoclaveprivada root@IP_DIGITAL_OCEAN
+
+crear una carpeta descarga node
+
+mkdir descarganode
+
+cd descrganode
+
+wget https://nodejs.org/dist/v14.15.4/node-v14.15.4-linux-x64.tar.xz
+
+tar xvf node-v14.15.4-linux-x64.tar.xz - esto es para descomprimir
+
+rm node-v14.15.4-linux-x64.tar.xz
+
+mv node-v14.15.4-linux-x64 /opt/
+
+existe una forma de agregarlo al path 
+
+nano .bashrc
+
+agregar esta linea
+export PATH=$PATH:/opt/node-v14.15.4-linux-x64/bin/
+
+
+mkdir proyecto
+
+Como copiar los archivos locales al remoto
+
+scp -i claves\deploy  ./package.json root@134.122.10.50:proyecto
+scp -i claves\deploy  .\prueba-express.js root@134.122.10.50:proyecto
+
+Luego entrar por ssh al servidor  
+
+ssh -i claves\deploy root@134.122.10.50
+
+cd proyecto 
+
+systemctl stop ufw.service -- apagar el firewall o configurar
+
+----------------------------------------------------------------------
+
+Existen servicios serverless donde yo puedo pasarle 
+1) una imagen de docker
+2) Un zip con un proyecto en node
+3) Puedo utilizar un mongodb con solo pedirlo
+
+----------------------------------------------------------------------
+
+Sotware as a service SAAS Utilizas github, gmail.
+
+Tres niveles 
+
+IAAS Infrastructure as a service (on premise - cloud)
+PAAS Platform as a service ------------------ AWS AZZURE DIGITAL OCEAN GOOGLE
+SAAS Software as a service 
+
+
+
+
+
+
+
