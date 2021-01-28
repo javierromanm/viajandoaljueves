@@ -1,0 +1,8 @@
+Tarea para la ultima 
+
++ Agregar filtros al query string por lo menos 
+  apellido y ciudad.
+
++ Hacer una promise para leer un directorio
+  y un async await para retornar un array de los archivos que hay en ese directorio
+

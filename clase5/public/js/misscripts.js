@@ -52,3 +52,31 @@ function ejemploPostObject() {
             console.error(err);
         });
 }
+
+
+// aca voy a manejar el consultar por nombre
+{
+    function consultarXNombre(nombre) {
+        fetch(['/usuario?firstName', nombre].join('='), {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin':'*'
+                }
+            })
+            .then(function(response) {
+                console.log('response =', response);
+                return response.json();
+            })
+            .then(function(data) {
+                console.log('data = ', data);
+            })
+            .catch(function(err) {
+                console.error(err);
+            });
+    }
+
+    $('#btnConsultar').on('click', function() {
+        consultarXNombre($('#txtNombre').val())
+    })   
+}
