@@ -19,22 +19,57 @@
           
       </div>
       <div class="row altura60">
-        
+        <input id="txtArchivo" type="file" value="Ingrese archivo" />
       </div>
 
       <div class="row altura60">
-        <div class="col-sm-6">
-          <button type="button" class="btn btn-secondary">Secondary</button>
+        <div class="col-sm-3">
+          <button id="btnArrancar" type="button" class="btn btn-primary">Arrancar</button>
         </div>
-        <div class="col-sm-6">
-          <button type="button" class="btn btn-primary">Primary</button>
+        <div class="col-sm-3">
+          <button id="btnSupervisar" type="button" class="btn btn-primary">Supervisar</button>
+        </div>
+        <div class="col-sm-3">
+          <button id="btnSubir" type="button" class="btn btn-primary">Subir</button>
+        </div>
+        <div class="col-sm-3">
+          <button id="btnFetch" type="button" class="btn btn-primary">Fetch</button>
         </div>
       </div>
-      
-      
+      <div class="row altura60">
+        <div class="col-sm-2">
+          Avance: 
+        </div>
+        <div class="col-sm-2">
+          <span id="txtAvance"></span> 
+        </div>
+      </div>
+      <div class="row altura60">
+        <div class="col-sm-12" id="renderizado"></div>
+      </div>
     </div>
   </main>
 
+  <script id="tmplTabla" type="text/template">
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>City</th>
+        <th>Country</th>
+      </tr>
+      {{#usuarios}}
+      <tr>
+        <td>{{id}}</td>
+        <td>{{firstName}}</td>
+        <td>{{lastName}}</td>
+        <td>{{city}}</td>
+        <td>{{country}}</td>
+      </tr>
+      {{/usuarios}}
+    </table>
+  </script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.11.0/underscore.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.0.1/mustache.js"></script>

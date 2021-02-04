@@ -1,7 +1,6 @@
-const { application } = require('express')
 const express = require('express')
 const http = require('http')
-const { endianness } = require('os')
+const asyncForLoop = require('./lib/asyncforloop')
 const mongoInterface = require('./lib/MongoInterface')
 const {ver} = require('./lib/utiles')
 
@@ -12,9 +11,70 @@ app.use(express.static('public'))
 app.use('/static', express.static(__dirname + '/public'))
 
 const BASE_DE_DATOS = 'viajando'
-const COLECCION = 'usuarios'
+const COLECCION = 'clase6'
+
+let arrBufferUsuarios = []
+let itemActual = 0
 
 // definicion del api
+app.post('/upload', (request, response) => {
+    request
+    .on('data', data => {
+        let texto = data.toString('utf8')
+        let arrUsuarios = texto.split('\n')
+        console.log(texto)
+        arrUsuarios.forEach(usu => {
+            arrBufferUsuarios.push(usu)
+        })
+    })
+    .on('end', () => {
+        console.log('fin')
+        response.setHeader('Content-Type', 'application/json')
+        response
+            .status(200)
+            .end(JSON.stringify({mensaje:'ok'}))
+    })
+})
+
+app.get('/arrancar', (request, response)=> {
+    response
+        .status(200)
+        .end(JSON.stringify({mensaje:'ok'}))
+
+    asyncForLoop(arrBufferUsuarios.length, (idx, next) => {
+        itemActual = idx
+        let usuario = arrBufferUsuarios[idx]
+
+        let itemsUsuario = usuario.split(';')
+
+        let objInsertar = {
+            id : itemsUsuario[0],
+            firstName: itemsUsuario[1],
+            lastName: itemsUsuario[2],
+            city: itemsUsuario[3],
+            streetName: itemsUsuario[4],
+            country: itemsUsuario[5],
+            accountName: itemsUsuario[6],
+            account: itemsUsuario[7],
+            amount: itemsUsuario[8]
+        }
+
+        mongoInterface.insert('viajando', 'clase6', objInsertar, (err) => {
+            if (err) {
+                console.log(err)
+                return
+            }
+            setTimeout(next, 200)
+        })
+    })
+})
+
+app.get('/supervisar', (request, response) => {
+    response
+        .status(200)
+        .end(JSON.stringify({progreso: itemActual}))
+})
+
 app.get('/usuario', (request, response) => {
     response.setHeader('Content-Type', 'application/json')
     
